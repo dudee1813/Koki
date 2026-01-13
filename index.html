@@ -173,10 +173,65 @@
   @keyframes fall{
     to{ transform: translateY(calc(100vh + 60px)) rotate(720deg); }
   }
+/* 🖤 Side heart lines */
+.sideLine{
+  position:fixed;
+  top:0;
+  bottom:0;
+  width:44px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:14px 10px;
+  pointer-events:none;
+  z-index:9999;
+  opacity:.9;
+}
+.sideLine.left{ left:0; }
+.sideLine.right{ right:0; }
+
+.sideLine span{
+  color:#111;              /* black */
+  font-size:18px;
+  line-height:1;
+  filter: drop-shadow(0 2px 6px rgba(255,255,255,.35));
+}
+
+/* small corner icons */
+.corner{
+  position:fixed;
+  font-size:18px;
+  color:#111;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.85;
+}
+.corner.tl{ top:10px; left:10px; }
+.corner.tr{ top:10px; right:10px; }
+.corner.bl{ bottom:10px; left:10px; }
+.corner.br{ bottom:10px; right:10px; }
+
+  
 </style>
 </head>
 
 <body>
+
+  <!-- 🖤 Decorative heart lines + corners -->
+<div class="corner tl">✦</div>
+<div class="corner tr">✦</div>
+<div class="corner bl">🖤</div>
+<div class="corner br">🖤</div>
+
+<div class="sideLine left" aria-hidden="true">
+  <span>🖤</span><span>━</span><span>🖤</span><span>━</span><span>🖤</span><span>━</span><span>🖤</span><span>━</span><span>🖤</span>
+</div>
+
+<div class="sideLine right" aria-hidden="true">
+  <span>🖤</span><span>━</span><span>🖤</span><span>━</span><span>🖤</span><span>━</span><span>🖤</span><span>━</span><span>🖤</span>
+</div>
+
+  
 <div id="tap">✨ Tap here ✨</div>
 
 <div id="scene">
@@ -220,27 +275,51 @@ const music = document.getElementById("music");
 const musicToggle = document.getElementById("musicToggle");
 const wishNote = document.getElementById("wishNote");
 const wishSecret = document.getElementById("wishSecret");
-
+  
 const fullText =
-`Koki 💖
+`Koki 🖤
 
-Just a small message to remind you:
-You matter.
-You’re appreciated.
-And your presence makes life lighter.
+First  I’m sorry.
+Sorry for any moment I made you feel less than you are.
+Sorry for losing time without takling to you 
+im soooo fucking stupid to do that 
+without any excuses.... 
+Sorry if I wasnt there when you needed words,
+you just dont know how much im sorry ;) 
+I don’t want to be the reason your smile gets smaller  ever i wanna be the one who draw it in your face dummy .
 
-Your smile is a blessing,
-your heart is beautiful,
-and you deserve the best things — always ✨
+You’re the kind of beautiful that makes someone pause.
+The kind that stays in the mind,
+and somehow feels even prettier the more you know it.
+ kOKI YOU are the best. 🖤✨
+I LOVE YOU SOOOO MUCH DUMMMMMMMY 
 
-Stay amazing 🌸
+Koki, you are the fucking rarest human being 
+You’ve got the cutiest beuatefull and sweetest .... you are just special more than you think :
+
+So here’s your reminder:
+🖤 You are enough — even on your tired days.
+🖤 You don’t need to prove anything to anyone.
+🖤 You deserve love that feels safe, not confusing.
+.
+
+Keep going.
+Even if it’s slow.
+Even if it’s messy.
+You’re still moving forward — and that’s powerful 
+even with this bitch Tamador or whatever her name.
+
+
+Stay shining, Koki 
+like you are and you will always beeeeeee 🌸
 `;
+
 
 function popHearts(){
   setInterval(()=>{
     const h = document.createElement("div");
     h.className = "heart";
-    const emojis = ["💖","💕","💗","✨","💞","🌸"];
+const emojis = ["🖤","🖤","✨","🌸","🖤","✦"];
     h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
     h.style.left = Math.random()*100 + "vw";
     h.style.bottom = "-30px";
@@ -378,3 +457,4 @@ musicToggle.onclick = async () => {
 
 </body>
 </html>
+
